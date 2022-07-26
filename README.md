@@ -9,9 +9,9 @@
       <a href="https://www.qgis.org/"> <img height='20' src='https://www.qgis.org/en/_static/logo.png'> </a>
       <a href="https://www.python.org/"> <img height='20' src='https://docs.python.org/3/_static/py.svg'> </a>
       <a href="https://jupyter.org/"> <img height = '20' src='https://jupyter.org/assets/logos/logomark-orangebody-greyplanets.svg'> </a>
-      <img height='20' src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">
-      <img height='20' src='https://about.gitlab.com/images/press/press-kit-icon.svg'>
-      <img height='20' src="https://pro.arcgis.com/en/pro-app/img/enable-pro.png">
+      <a href="https://github.com"><img height='20' src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"></a>
+      <a href="https://gitlab.com"><img height='20' src='https://about.gitlab.com/images/press/press-kit-icon.svg'></a>
+      <a href="https://www.esri.com"><img height='20' src="https://pro.arcgis.com/en/pro-app/img/enable-pro.png"></a>
       </div>
     </td>
   </tr>
