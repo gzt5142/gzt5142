@@ -24,7 +24,6 @@
         <a href="https://www.w3.org/"><img height='20' src='https://www.w3.org/html/logo/downloads/HTML5_Badge.svg'></a>
         <a href="https://www.w3.org/Style/CSS/"><img height='20' src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg"></a>
         <a href='https://www.ecma-international.org/publications-and-standards/standards/ecma-262/'><img height='20' src='JS_logo.png'></a>
-
       </div>
     </td>
   </tr>
