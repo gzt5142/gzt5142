@@ -32,7 +32,7 @@ gitGraph
   branch test
   branch dev
   checkout dev
-  commit id: "default" tag: "Default Branch"
+  commit id: "default"
 ```
 Those standard branch names correspond to: 
 
@@ -269,14 +269,14 @@ gitGraph
   merge dev
   commit id: "hotfix..."
   checkout master
-  merge test
+  merge test tag:"v2.0.3"
 ```
 At any point after the feature branch is merged with `dev`, your feature branch can be deleted. This will likely be done
 at the time of merging, but could happen later. When merging, the code reviewer could elect to 'squash' commits or not. 
 
 ### Release
 Once a merge has been made to the `master` branch, a 'release' is created and a version tag assigned. Tags affix convenient
-handles to specific points on the git graph. 
+handles to specific points on the git graph. In the above graph, the release on `master` is tagged `v2.0.3`. 
 
 ## Other Thoughts...
 The graphs above isolate the changes associated with a single feature branch.  But multiple branches can be created by multiple
