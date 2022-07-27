@@ -303,6 +303,10 @@ gitGraph
   checkout dev
   merge OO1-customconfig
   merge OO2-nextfeature
+  branch OO3-anotherfeature
+  commit id: "quickfix"
+  checkout dev
+  merge OO3-anotherfeature
   checkout test
   merge dev
   commit id: "testing"
