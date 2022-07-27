@@ -60,16 +60,17 @@ default branch, when you clone, it should be your only option:
 ```
 > git branch
 * dev
-> git checkout -b nnn-description
+> git checkout -b xx-nnn-description
 ```
-where `nnn` is the issue number which describes the work you are about to do. And `description` is a human-friendly descriptor of that
-work.  In theory, you could name the branch anything, but WIM likes to have the branch named with the developers initials and the issue 
-number, something like ABC-123. Descriptors are less important (but are really helpful). 
+where `xx` and `nnn` are your initials and the issue number you are working on. In theory, you could name the branch anything, but WIM 
+likes to have the branch named with the developers initials and the issue number, something like `ABC-123`. 
+Descriptors are less important (but are a really helpful shorthand).  In reality, the branch will be linked to the issue, which is (or 
+can be) filled with lots of descriptive information, commentary, etc. The description in the branch name is often omitted for this reason. 
 
 Suppose issue number one is a block of work where we want to implement some sort of customizable configuration to the app we're 
 developing: 
 ```
-> git checkout -b 001-customconfig
+> git checkout -b gt-001-customconfig
 ```
 This will put your repository into this state: 
 ```mermaid
@@ -85,7 +86,11 @@ gitGraph
   checkout OO1-customconfig
   commit id: "ready to work" type: HIGHLIGHT
 ```
-This is often called a 'feature branch': a branch of `dev` intended to capture all of the changes necessary to implement a specific feature. 
+In this example, `gt` (my initials), `001` (a pretend issue number), and `customconfig` help a reader know who and what the branch
+is for without having to dig through the issue object. 
+
+The branch just created is often called a 'feature branch': a branch of `dev` intended to capture all of the changes necessary 
+to implement a specific feature. 
 
 ### Do the work
 This is an iterative loop where you edit files, add them to git, commit those changes. 
@@ -159,8 +164,8 @@ gitGraph
   branch dev
   checkout dev
   commit id: "_"
-  branch OO1-customconfig
-  checkout OO1-customconfig
+  branch gt-001-customconfig
+  checkout gt-001-customconfig
   commit id: "newfile.py"
   commit id: "another"
   commit id: "ready..." type: HIGHLIGHT
@@ -187,7 +192,7 @@ Some details for your Pull Request:
   conversations during the development of a branch's features.  This is especially useful if multiple people will 
   contribute to this branch. 
 
-### Merge
+### Merge to `dev`
 The merge, once reviewed and approved, will apply all changes in your branch to the `dev`  branch. 
 ```mermaid
 %%{init: {  'theme': 'base', "gitGraph": {"rotateCommitLabel": true, "mainBranchName": "master"}} }%%
@@ -198,8 +203,8 @@ gitGraph
   branch dev
   checkout dev
   commit id: "_"
-  branch OO1-customconfig
-  checkout OO1-customconfig
+  branch gt-001-customconfig
+  checkout gt-001-customconfig
   commit id: "newfile.py"
   commit id: "another"
   commit id: "lots..."
@@ -207,7 +212,7 @@ gitGraph
   commit id: "edits."
   commit id: "PR Opened"
   checkout dev
-  merge OO1-customconfig
+  merge gt-001-customconfig
   commit id: "merged" type: HIGHLIGHT
 ```
 
@@ -227,8 +232,8 @@ gitGraph
   branch dev
   checkout dev
   commit id: "_"
-  branch OO1-customconfig
-  checkout OO1-customconfig
+  branch gt-001-customconfig
+  checkout gt-001-customconfig
   commit id: "newfile.py"
   commit id: "another"
   commit id: "lots..."
@@ -236,7 +241,7 @@ gitGraph
   commit id: "edits."
   commit id: "PR Opened"
   checkout dev
-  merge OO1-customconfig
+  merge gt-001-customconfig
   checkout test
   merge dev
   commit id: "Testing"
@@ -256,8 +261,8 @@ gitGraph
   branch dev
   checkout dev
   commit id: "_"
-  branch OO1-customconfig
-  checkout OO1-customconfig
+  branch gt-001-customconfig
+  checkout gt-001-customconfig
   commit id: "newfile.py"
   commit id: "another"
   commit id: "lots..."
@@ -265,7 +270,7 @@ gitGraph
   commit id: "edits."
   commit id: "PR Opened"
   checkout dev
-  merge OO1-customconfig
+  merge gt-001-customconfig
   checkout test
   merge dev
   commit id: "hotfix..."
@@ -292,23 +297,25 @@ gitGraph
   branch dev
   checkout dev
   commit id: "_"
-  branch OO1-customconfig
-  checkout OO1-customconfig
+  branch gt-001-customconfig
+  checkout gt-001-customconfig
   commit id: "feature1.py"
   commit id: "etc..."
   checkout dev
-  branch OO2-nextfeature
+  branch gt-002-nextfeature
   commit id: "lots..."
   commit id: "of..."
   commit id: "edits"
   checkout dev
-  merge OO1-customconfig
-  merge OO2-nextfeature
-  branch OO3-anotherfeature
+  merge gt-001-customconfig
+  merge gt-002-nextfeature
+  branch gt-003-anotherfeature
   commit id: "quickfix"
   checkout dev
-  merge OO3-anotherfeature
+  merge gt-003-anotherfeature
   checkout test
   merge dev
   commit id: "testing"
+  checkout master
+  merge test
 ```
