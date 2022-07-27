@@ -24,7 +24,7 @@ Assuming that the repo you are working with has been set up according to the
 [best practice guidance](https://github.com/USGS-WiM/wimfo/blob/dev/Development/Development_Tools/Git/Setup_New_Repository.md), 
 there should already be a few branches set up: 
 ```mermaid
-%%{init: {  'theme': 'base', "gitGraph": {"rotateCommitLabel": true, "mainBranchName": "master"}} }%%
+%%{init: {  'theme': 'base', "gitGraph": {"rotateCommitLabel": true, "mainBranchName": "master"} } }%%
 gitGraph
   commit id: "init"
   commit id: "set up"
@@ -38,8 +38,8 @@ Those standard branch names correspond to:
 
 * `master` : The final product, visible to public consumers of the repo. This is 'production' code, after it has been tested. 
 * `staging` : This is an optional branch, where a project owner or lead developer will system test the code prior to releasing to master. 
-* `test`: Branch where code is aggregated for testing. _(NOTE: Not sure how this differs from `staging`.)_
-* `dev`: Daily working branch.  This is the one to branch from in order to do your work. 
+* `test` : Branch where code is aggregated for testing. _(NOTE: Not sure how this differs from `staging`.)_
+* `dev` : Daily working branch.  This is the one to branch from in order to do your work. 
 
 The distinction between `staging` and `test` is at the project level, and won't affect day-to-day work for most developers. Here, I'm going
 to remove `staging`, and only show `master`, `test`, and `dev`.  The relationshiop between `test`, `dev`, and your personal work can be 
@@ -52,10 +52,11 @@ gitGraph
   branch test
   branch dev
   checkout dev
-  commit id: "default" tag: "Default Branch"
+  commit id: "default"
 ```
 The default branch is `dev`.  You should plan to do all of your work off of it. The `master` branch is protected, meaning that if you
-work from it, you won't be able to merge your changes back into it without a lot of drama.  Work from `dev': 
+work from it, you won't be able to merge your changes back into it without a lot of drama.  Work from `dev`.  Since that is the 
+default branch, when you clone, it should be your only option: 
 ```
 > git branch
 * dev
