@@ -42,7 +42,7 @@ Those standard branch names correspond to:
 * `dev` : Daily working branch.  This is the one to branch from in order to do your work. 
 
 The distinction between `staging` and `test` is at the project level, and won't affect day-to-day work for most developers. Here, I'm going
-to remove `staging`, and only show `master`, `test`, and `dev`.  The relationshiop between `test`, `dev`, and your personal work can be 
+to remove `staging`, and only show `master`, `test`, and `dev`.  The relationship between `test`, `dev`, and your personal work can be 
 extrapolated to apply to staging also.  Here's the simplified gitGraph for the remaining illustrations: 
 ```mermaid
 %%{init: {  'theme': 'base', "gitGraph": {"rotateCommitLabel": true, "mainBranchName": "master"}} }%%
@@ -63,8 +63,8 @@ default branch, when you clone, it should be your only option:
 > git checkout -b nnn-description
 ```
 where `nnn` is the issue number which describes the work you are about to do. And `description` is a human-friendly descriptor of that
-work.  In theory, you could name the branch anything, but WIM likes to have the issue number represented in the branch name. Descriptors
-are less important (but are really helpful). 
+work.  In theory, you could name the branch anything, but WIM likes to have the branch named with the developers initials and the issue 
+number, something like ABC-123. Descriptors are less important (but are really helpful). 
 
 Suppose issue number one is a block of work where we want to implement some sort of customizable configuration to the app we're 
 developing: 
@@ -123,7 +123,7 @@ Note that most IDEs with good git integration will handle a lot of that for you 
 the code needs to run. Get comfortable with the command line so that you can work anywhere under any conditions. 
 
 ### Push your local branch to the github repo
-The work you've done with commits is all local to the host where' you are working.  Once you've got a collection of commits that
+The work you've done with commits is all local to the host where you are working.  Once you've got a collection of commits that
 implement a complete feature or change, you can push your branch to the central repository to share with others. 
 ```
 > git push --set-upstream origin 001-customconfig
