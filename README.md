@@ -10,7 +10,7 @@
       <a href="https://github.com"><img height='30' src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"></a>&nbsp;
       <a href="https://gitlab.com"><img height='30' src='https://about.gitlab.com/images/press/press-kit-icon.svg'></a>&nbsp;
       <a href="https://www.qgis.org/"> <img height='30' src='https://www.qgis.org/en/_static/logo.png'></a>&nbsp;
-      <a href="https://www.esri.com"><img height='30' src="https://pro.arcgis.com/en/pro-app/img/enable-pro.png"></a>&nbsp;
+      <a href="https://www.esri.com"><img height='30' src="https://www.esri.com/content/dam/esrisites/en-us/common/icons/product-logos/ArcGIS-Pro.png"></a>&nbsp;
     </td>
   </tr>
   <tr>
