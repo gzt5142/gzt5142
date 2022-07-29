@@ -9,7 +9,7 @@ parcel of change. Issues on github are threaded discussions where developers can
 Once an issue has been created, it may optionally be assigned to a user.  Once you've decided to do the work associated with the changes
 required by a given issue, you're ready to _enter the flow_.
 
-First, make note of the **issue number** of the issue you want to work on. You'll want that later. 
+First, make note of the **issue number** of the issue you want to work on. You'll want that later.
 
 ## Git a local copy of the repo
 
