@@ -66,8 +66,10 @@ No new commands or behavior.  This is all automatic, which is its key advantage.
   - git push
   - git fetch
   - git pull (so long as this notebook is not among the changed files to be reconciled)
-* If you switch branches, the notebook is retrieved from the repo, which means you get the cleaned version. Note that it got 
-  clean on its way into the repo, not on its way out. 
+* If you switch branches, the notebook is retrieved from the repo, which means you get the cleaned version. Note that it got
+  clean on its way into the repo, not on its way out.
+* This mechanism spawns a sub-process for the filter and a pair of pipes 
+  to plumb STDIN and STDOUT.  If you are committing or merging a bunch of notebooks, expect significant delay during the commit. 
 
 ## Long-term usage: 
 This configuration is per-repository, and lives only on your local copy.
