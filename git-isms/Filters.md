@@ -61,4 +61,14 @@ No new commands or behavior.  This is all automatic, which is its key advantage.
   output is not purged from your local copy as you work on it.
 * A checkout operation (like switching into this branch) will retrieve the file from the repo, which is to say that it will
   retrieve the filtered/clean version.
-* A `git push` contains an implicit checkout. 
+* Your local copy (containing output cells) will persist through: 
+  - git commit
+  - git push
+  - git fetch
+  - git pull (so long as this notebook is not among the changed files to be reconciled)
+* If you switch branches, the notebook is retrieved from the repo, which means you get the cleaned version. Note that it got 
+  clean on its way into the repo, not on its way out. 
+
+## Long-term usage: 
+This configuration is per-repository, and lives only on your local copy.
+If you want it to be a standard thing for all of your local repos, then you'll want to create a template folder structure for git to use when it inits a new repo.
