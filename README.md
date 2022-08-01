@@ -7,6 +7,7 @@
     <td width=600px>
       <a href="https://www.python.org/"><img height='30' src='https://docs.python.org/3/_static/py.svg'></a>&nbsp;
       <a href="https://jupyter.org/"><img height = '30' src='https://jupyter.org/assets/logos/logomark-orangebody-greyplanets.svg'></a>&nbsp;
+      <a href="https://git-scm.com/"><img height='30' src='https://github.com/git/git-scm.com/blob/main/public/favicon.png'><a>&nbsp;
       <a href="https://github.com"><img height='30' src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"></a>&nbsp;
       <a href="https://gitlab.com"><img height='30' src='https://about.gitlab.com/images/press/press-kit-icon.svg'></a>&nbsp;
       <a href="https://www.qgis.org/"> <img height='30' src='https://www.qgis.org/en/_static/logo.png'></a>&nbsp;
