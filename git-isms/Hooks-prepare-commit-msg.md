@@ -33,7 +33,7 @@ sed -i.bak "1s/^/[#$ISSUE_NO]: /" "$1"
 Make sure that this script has the execute bit set on it (`chmod a+x prepare-commit-msg`).
 
 This script will run any time a commit message is prepared by git. Note that this is designed for use on a unix-like system like
-Linux or MacOS.  Have not tested on Windows (yet).
+Linux or MacOS.  Also seems to work in a PowerShell on Windows. 
 
 ## Usage Notes
 
