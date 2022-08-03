@@ -9,13 +9,15 @@ better for this particular example, using git 'hooks').
 
 ## Use Case
 
-I like this feature for cleaning up jupyter notebooks as they are beeing checked into the repository.  In particular, I want
+I like the filter feature for cleaning up jupyter notebooks as they are beeing checked into the repository.  In particular, I want
 checked-in notebooks to have all of their output cells cleared on their way to the repo. Because the notebook contains code
 as well as its output, merely re-running a notebook (with no code changes) will result in a modified notebook file. (Output cells
 contain metadata, including a datestamp.  The end result is that a notebook will show change under many conditions in which
 no actuall code was changed.)  Further, notebooks with image outputs (from matplotlib, hvplot, etc) will occupy a fair bit
 of storage. Sometimes you'll care about that disk space and network bandwidth; other times you won't.  I usually do, so I like
 to strip these outputs.
+
+I'll describe the filter set-up steps for this use case, adapted from [this doc](https://janakiev.com/blog/jupyter-git-remove-output/)
 
 ## Terminology
 
@@ -24,6 +26,7 @@ to know here are `clean` and `smudge`.
 
 * **clean** : Filter a file on its way _into_ the repo. A clean filter is used whenever the file is checked in (i.e. committed),
   but it **DOES NOT** affect the 'working' copy you have in your file tree.
+
 * **smudge** : Filter a file on its way _out of_ the repo. This can be useful to convert files from one format to another, or to
   execute some other custom command against the file itself.
 
@@ -35,7 +38,9 @@ Because this configuration will be executing arbitrary code as the filter proces
 whoever checked out or forked the repo would be running your filter on their machine without their permission or knowledge.
 For this reason, configuration is made only on the LOCAL repo by each developer.
 
-## Define the Filter
+## Setting up a Filter 'manually'
+
+### 1) Define the Filter
 
 Place these lines in the `.git/config` file within your repo:
 
@@ -47,10 +52,11 @@ Place these lines in the `.git/config` file within your repo:
 This defines a filter with the name `remove-notebook-output`, and specifies what command to run.  Note that this particular filter
 runs only on clean (i.e. _commit_ / _checkin_).  That's what we want in this case.
 
-## Associate the filter with files
+### 2) Associate the filter with files
 
 Place this line in the `.git/info/attributes` file within your repo:
-```
+
+```txt
 *.ipynb filter=remove-notebook-output
 ```
 
@@ -62,6 +68,16 @@ examples/*.ipynb filter=remove-notebook-output
 ```
 
 This would filter only those notebooks found in the `examples/` folder, but would not filter notebooks found elsewhere in the repo.
+
+## Special case for Notebooks
+
+The `nbconvert` workflow should work for any environment where
+notebooks can be run: The `nbconvert` option is part of the Jupyter ecosystem.  But it's slow. A smaller, lighter-weight option is available, but requires that you add another package to your environment.
+
+Consider [nbstripout](https://github.com/kynan/nbstripout) as a better-performing replacement. This particular package can auto-configure
+itself, so that the manual edits described above can be done for you.
+But the real advantage is that it is much, much faster than using `nbconvert`.
+
 
 ## Usage
 

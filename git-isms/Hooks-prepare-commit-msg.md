@@ -1,12 +1,14 @@
 # Git Hooks
 
 Hooks can do a lot of things related to the git workflow. It is possible to run custom scripts before and after key events
-like merges and commits. This example, we will intercept the commit message just prior to moment when the commit goes into
-the repository.
+like merges and commits. These scripts are run **locally** as part of your working copy of the repository. They do not affect
+the github remote. 
 
-The key hook we'll work with is `prepare-commit-msg`.  All hooks are **LOCAL** to your copy of the repository, found in
+This example, we will intercept the commit message just prior to moment when the commit goes into the repository.
+
+The key hook we'll work with is `prepare-commit-msg`.  All hooks are local to your copy of the repository, found in
 the `hooks` folder within `$GIT_DIR`.  That typically is in `.git/hooks`.  The scripts here are named for the moment in the
-workflow when they are called.
+workflow when they are called. Because they are burried in `.git/`, they are not tracked by the repository itself.  
 
 ## Create the hook script
 
@@ -65,5 +67,18 @@ A  newfile.py
 30fd623 (HEAD -> gt-404-NewFeature) [#404]: my message
 25677b2 (origin/main, origin/HEAD, main) 
 ```
-The issue number was guessed from the branch name, and `[#404]: ` was prepended to the supplied commit message. 
 
+The issue number was guessed from the branch name, and `[#404]:` was prepended to the supplied commit message.
+
+Even better: this hook is embedded in the standard git logic, so it
+applies no matter what tool you use to commit.  With just the hook described
+here, the message is modified with commits made via command line, or with
+an IDE like `vscode`.
+
+## On Github
+
+A useful side-effect of this is that github recognizes that prepended string
+as including an issue number.
+![github commits](./CommitsOnGitHub.png)
+
+What that means in practice is that the commit message is a link to that commit on the revision tree, **and** the issue number is a link to the issue itself.
