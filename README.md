@@ -1,4 +1,4 @@
-# 👋 Hi, I’m @gzt5142
+# 👋 Hi, I’m Gene (@gzt5142)
 
 
 <table>
