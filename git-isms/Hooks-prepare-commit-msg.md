@@ -21,7 +21,7 @@ Create a new file `<repo_dir>/.git/hooks/prepare-commit-msg` with these contents
 ## If not, we will attempt to derive it from the branch name. 
 if [ XX = X${ISSUE_NO}X ]; then
   BRANCH_NAME=$(git symbolic-ref --short HEAD)
-  ISSUE_NO=$(echo $BRANCH_NAME | sed -n 's/^[^0-9]*-\([0-9]*\).*/\1/p')
+  ISSUE_NO=$(echo $BRANCH_NAME | sed -n -E "s/[^0-9]*([0-9]+).*/\1/p")
 fi
 
 if [ XX = X${ISSUE_NO}X ]; then
