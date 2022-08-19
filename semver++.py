@@ -11,27 +11,29 @@
 	reset to zero: 
 	# semvar++ -m 2.3.6  -->  2.4.0
 	# semvar++ -M 2.3.6  -->  3.0.0
+
+	If this script is confused in any way, it will print "0.0.0"
+	and give a non-zero exit code.
 """
+
 import argparse
 from re import findall
 
 if __name__ == "__main__":
 	par=argparse.ArgumentParser()
 	cg = par.add_mutually_exclusive_group()
-	cg.add_argument('-M', help='major', action='store_true', default=False)
-	cg.add_argument('-m', help='minor', action='store_true', default=False)
-	cg.add_argument('-p', help='patch', action='store_true', default=True)
+	cg.add_argument('-M', help='major++', action='store_true', default=False)
+	cg.add_argument('-m', help='minor++', action='store_true', default=False)
+	cg.add_argument('-p', help='patch++', action='store_true', default=True)
 	par.add_argument('version', help="The SemVar string you want to increment")
 	argv = par.parse_args()
 	
 	# This parsing is really simplified. edge cases won't be 
-	# accepted. 
+	# matched. 
 	x = findall('^[Vv]?(\d+)\.(\d+)\.(\d+)$', argv.version)
-	if len(x) == 0:
-		print("0.0.0")
-		exit(-1)
 	try:
-		M = int(x[0][0])
+		assert len(x) != 0  # must match at least once
+		M = int(x[0][0]) # no matter how many matches, just takes the first.
 		m = int(x[0][1])
 		p = int(x[0][2])
 	except:
