@@ -28,7 +28,4 @@
       gimme a sec... 
     </td>
   </tr>
-      
 </table>
-
-    
