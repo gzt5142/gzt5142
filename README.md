@@ -1,6 +1,4 @@
 # 👋 Hi, I’m Gene (@gzt5142)
-
-
 <table>
   <tr>
     <td>Stuff I do:</td>
