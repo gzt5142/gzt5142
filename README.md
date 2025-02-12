@@ -1,2 +1,2 @@
-# 👋 Hi, I’m Gene (@gzt5142)
+# 👋 Hi  
 
